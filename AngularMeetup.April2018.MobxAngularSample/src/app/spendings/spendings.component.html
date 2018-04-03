@@ -1,0 +1,23 @@
+<div *mobxAutorun="{ dontDetach: true }">
+<mat-card>
+  <mat-card-header>
+    Aggregated of Spendings by Type
+  </mat-card-header>
+  <mat-card-content>
+    <div class="group">
+      <mat-checkbox *ngFor="let type of store.state.spendingTypes" name="populationType_{{type.name}}"
+                    [(ngModel)]="type.checked"
+                    [value]="type.name">{{ type.name }}</mat-checkbox>
+    </div>
+    <div class="group">
+      <ng-container *ngIf="store.spendingsAggregated?.length">
+        <div *ngFor="let spend of store.spendingsAggregated">
+          <span>Type: {{spend.type}}</span>
+          <span>Sum: {{spend.sum}}</span>
+        </div>
+      </ng-container>
+      <p class="empty-table-message" *ngIf="!store.spendingsAggregated?.length">No spending added</p>
+    </div>
+  </mat-card-content>
+</mat-card>
+</div>

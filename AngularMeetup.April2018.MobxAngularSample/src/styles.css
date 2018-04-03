@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.empty-table-message {
+  padding: 0.25rem;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 0.875rem;
+}
+
+mat-card {
+  border-radius: 6px;
+}
+
+mat-card-header {
+
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0 !important;
+}
+
+.mat-raised-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+}
+
+.group {
+  padding: 1rem;
+}
