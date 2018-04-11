@@ -3,57 +3,55 @@ import { observable, action, computed } from 'mobx';
 
 @Injectable()
 export class Store {
-
   @observable
   state: any = {
     spendings: [],
     spendingTypes: []
   };
 
-  spendingToAdd: any = {};
-  spendingTypeToAdd: string;
-
   @computed
   get spendingsTotal(): number {
-    let result = 0;
-    if (this.state.spendings) {
-      this.state.spendings.forEach(x => {
-        result += x.value;
-      });
+    if (this.state.spendings && this.state.spendings.length) {
+      return this.state.spendings
+        .map(x => x.value)
+        .reduce((a, b) => a + b);
+    } else {
+      return 0;
     }
-    return result;
   }
 
   @computed
-  get spendingsAggregated(): any[] {
-    const result = [];
-    if (this.state.spendings) {
-      this.state.spendings.forEach(x => {
-        if (this.state.spendingTypes.find(t => t.name === x.type).checked) {
-          const i = result.indexOf(result.find(s => s.type === x.type));
-          if (i >= 0) {
-            result[i].sum += x.value;
-          } else {
-            result.push({type: x.type, sum: x.value});
+  get spendingsAggregated(): any {
+    if (this.state.spendings && this.state.spendings.length) {
+      return this.state.spendings
+        .reduce((total, item) => {
+          if (this.state.spendingTypes.find(t => t.name === item.type).checked) {
+            total[item.type] = (total[item.type] || 0) + item.value;
           }
-        }
-      });
+          return total;
+        }, {});
+    } else {
+      return null;
     }
-    return result;
+  }
+
+  @computed
+  get spendingsAggregatedKeys(): any[] {
+    if (this.state.spendings && this.state.spendings.length) {
+      return Object.keys(this.spendingsAggregated);
+    } else {
+      return null;
+    }
   }
 
   @action
-  addSpendingSum() {
-    const newItem = {type: this.spendingToAdd.type, value: this.spendingToAdd.value};
+  addSpendingSum(spendingToAdd: any) {
+    const newItem = {type: spendingToAdd.type, value: spendingToAdd.value};
     this.state.spendings.push(newItem);
-
-    this.spendingToAdd.type = '';
-    this.spendingToAdd.value = '';
   }
 
   @action
-  addSpendingType() {
-    this.state.spendingTypes.push({ name: this.spendingTypeToAdd, checked: true });
-    this.spendingTypeToAdd = '';
+  addSpendingType(typeToAdd: string) {
+    this.state.spendingTypes.push({ name: typeToAdd, checked: true });
   }
 }

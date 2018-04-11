@@ -10,13 +10,13 @@
                     [value]="type.name">{{ type.name }}</mat-checkbox>
     </div>
     <div class="group">
-      <ng-container *ngIf="store.spendingsAggregated?.length">
-        <div *ngFor="let spend of store.spendingsAggregated">
-          <span>Type: {{spend.type}}</span>
-          <span>Sum: {{spend.sum}}</span>
+      <ng-container *ngIf="store.spendingsAggregated">
+        <div *ngFor="let key of store.spendingsAggregatedKeys">
+          <span>Type: {{key}}</span>
+          <span>Sum: {{store.spendingsAggregated[key]}}</span>
         </div>
       </ng-container>
-      <p class="empty-table-message" *ngIf="!store.spendingsAggregated?.length">No spending added</p>
+      <p class="empty-table-message" *ngIf="!store.spendingsAggregated">No spending added</p>
     </div>
   </mat-card-content>
 </mat-card>

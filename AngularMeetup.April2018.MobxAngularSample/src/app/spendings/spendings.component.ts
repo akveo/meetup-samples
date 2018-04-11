@@ -8,6 +8,4 @@ import { Store } from '../app.store';
 })
 export class SpendingsComponent {
   constructor(public store: Store) {}
-
-
 }
