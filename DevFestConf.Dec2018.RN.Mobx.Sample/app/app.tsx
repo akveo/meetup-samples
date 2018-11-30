@@ -4,6 +4,7 @@ import { Platform, StyleSheet, Text, View } from 'react-native';
 interface AppProps {}
 
 export class App extends Component<AppProps> {
+
   render() {
     return (
       <View style={styles.container}>
@@ -11,6 +12,7 @@ export class App extends Component<AppProps> {
       </View>
     );
   }
+
 }
 
 const styles = StyleSheet.create({
