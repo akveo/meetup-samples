@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
-interface AppProps {}
+interface AppComponentProps {}
 
-export class App extends Component<AppProps> {
+export class AppComponent extends Component<AppComponentProps> {
 
   render() {
     return (
@@ -15,7 +15,7 @@ export class App extends Component<AppProps> {
 
 }
 
-const styles = StyleSheet.create({
+const styles: any = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',

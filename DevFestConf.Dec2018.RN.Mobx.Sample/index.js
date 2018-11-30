@@ -1,7 +1,7 @@
 import { AppRegistry, YellowBox } from 'react-native';
 import { name as appName } from './app.json';
-import { App } from './app/app';
+import { AppContainer } from './app/app.container';
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader', 'Setting a timer']);
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => AppContainer);
