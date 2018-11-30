@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import { Images } from './core/images';
 
 interface AppComponentProps {}
 
@@ -9,6 +10,7 @@ export class AppComponent extends Component<AppComponentProps> {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
+        <Image source={Images.NPM_OUTLINE}/>
       </View>
     );
   }
