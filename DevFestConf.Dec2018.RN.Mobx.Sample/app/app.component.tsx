@@ -1,16 +1,40 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  FlatList,
+} from 'react-native';
 import { Images } from './core/images';
+import { Icon } from './core/models';
 
-interface AppComponentProps {}
+interface AppComponentProps {
+  icons: Icon[];
+}
 
 export class AppComponent extends Component<AppComponentProps> {
+
+  renderIcon(icon: Icon) {
+    return (
+      <Image
+        style={styles.image}
+        source={Images[icon.key]}
+      />
+    )
+  }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Image source={Images.NPM_OUTLINE}/>
+        <FlatList
+          numColumns={10}
+          showsVerticalScrollIndicator={false}
+          data={this.props.icons}
+          renderItem={({item}) => this.renderIcon(item)}
+          keyExtractor={(item) => `${item.key}-${item.name}`}
+        />
       </View>
     );
   }
@@ -20,18 +44,11 @@ export class AppComponent extends Component<AppComponentProps> {
 const styles: any = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
+    margin: 16,
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  image: {
+    width: 38,
+    height: 38,
   },
 });
