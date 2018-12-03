@@ -23,6 +23,8 @@ export class AppContainer extends Component<AppContainerProps, AppContainerState
     return (
       <AppComponent
         icons={this.state.icons}
+
+        onIcon={() => console.log('show icon')}
       />
     );
   }
