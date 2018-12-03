@@ -5,6 +5,12 @@ import { Icon } from './core/models';
 export class AppVM {
 
   @observable searchString: string = '';
+  @observable currentIcon: Icon = {};
+
+  @action
+  setCurrentIcon(icon: Icon) {
+    this.currentIcon = icon;
+  }
 
   @action
   setSearchString(text: string) {

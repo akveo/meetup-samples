@@ -72,7 +72,7 @@ const styles: any = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 16,
-    color: '#abb3c1',
+    color: '#5c5d60',
   },
   icon: {
     width: 20,

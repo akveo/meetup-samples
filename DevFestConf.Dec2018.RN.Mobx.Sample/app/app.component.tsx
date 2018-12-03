@@ -7,6 +7,8 @@ import {
   FlatList,
   Dimensions,
   TouchableOpacity,
+  Modal,
+  Text,
 } from 'react-native';
 import { Images } from './core/images';
 import { Icon } from './core/models';
@@ -15,16 +17,19 @@ import { SearchInput } from './components';
 interface AppComponentProps {
   icons: Icon[];
   searchString: string;
+  isModalVisible: boolean;
+  selectedIcon: Icon;
 
   onSetSearchString: (text: string) => void;
-  onIcon: () => void;
+  onIcon: (icon: Icon) => void;
+  onCloseModal: () => void;
 }
 
 export class AppComponent extends Component<AppComponentProps> {
 
   renderIcon(icon: Icon) {
     return (
-      <TouchableOpacity onPress={this.props.onIcon}>
+      <TouchableOpacity onPress={() => this.props.onIcon(icon)}>
         <Image
           style={styles.image}
           source={Images[icon.key]}
@@ -36,6 +41,28 @@ export class AppComponent extends Component<AppComponentProps> {
   getNumberOfCols(): number {
     const width = Dimensions.get('screen').width;
     return Math.floor(width / 38);
+  }
+
+  renderBackground() {
+    return <View style={styles.background}/>;
+  }
+
+  renderModal() {
+    return (
+      <Modal
+        animationType='fade'
+        transparent={true}
+        visible={this.props.isModalVisible}
+        onRequestClose={() => 1}>
+        {this.renderBackground()}
+        <TouchableOpacity style={styles.modalContainer} onPress={this.props.onCloseModal}>
+          <View style={styles.modalContent}>
+            <Image source={Images[this.props.selectedIcon.key]}/>
+            <Text style={styles.iconText}>{this.props.selectedIcon.name}</Text>
+          </View>
+        </TouchableOpacity>
+      </Modal>
+    )
   }
 
   render() {
@@ -55,6 +82,7 @@ export class AppComponent extends Component<AppComponentProps> {
           renderItem={({item}) => this.renderIcon(item)}
           keyExtractor={(item) => `${item.key}-${item.name}`}
         />
+        {this.renderModal()}
       </View>
     );
   }
@@ -70,5 +98,31 @@ const styles: any = StyleSheet.create({
   image: {
     width: 38,
     height: 38,
+  },
+  modalContainer: {
+    flex: 1,
+    position: 'absolute',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    ...StyleSheet.absoluteFillObject,
+  },
+  modalContent: {
+    width: 300,
+    height: 300,
+    backgroundColor: '#ffffff',
+    borderRadius: 10,
+    padding: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  background: {
+    flex: 1,
+    backgroundColor: 'gray',
+    opacity: 0.8,
+  },
+  iconText: {
+    fontSize: 16,
+    marginTop: 16,
   },
 });
