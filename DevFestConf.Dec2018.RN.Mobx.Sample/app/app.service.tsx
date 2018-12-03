@@ -1,5 +1,6 @@
 import { Images } from './core/images';
 import { Icon } from './core/models';
+import { appStore } from './app.store';
 
 export class AppService {
 
@@ -11,6 +12,7 @@ export class AppService {
       }));
     return Promise.resolve(icons)
       .then((icons: Icon[]) => {
+        appStore.setIcons(icons);
         return icons;
       })
   }

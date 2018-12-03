@@ -8,6 +8,7 @@ import {
 import { Images } from '../core/images';
 
 interface SearchInputProps {
+  value: string;
   placeholder: string;
   onChangeText?: any;
   style?: any;

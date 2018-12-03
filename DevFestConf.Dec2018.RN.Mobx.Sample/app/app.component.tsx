@@ -14,7 +14,9 @@ import { SearchInput } from './components';
 
 interface AppComponentProps {
   icons: Icon[];
+  searchString: string;
 
+  onSetSearchString: (text: string) => void;
   onIcon: () => void;
 }
 
@@ -42,8 +44,9 @@ export class AppComponent extends Component<AppComponentProps> {
     return (
       <View style={styles.container}>
         <SearchInput
-          placeholder={'Test'}
-          onChangeText={(text: string) => 1}
+          value={this.props.searchString}
+          placeholder={`Search ${this.props.icons.length} icons`}
+          onChangeText={(text: string) => this.props.onSetSearchString(text)}
         />
         <FlatList
           numColumns={numberOfCols}

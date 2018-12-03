@@ -3,28 +3,28 @@ import { Component } from 'react';
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
 import { Icon } from './core/models';
+import { observer } from 'mobx-react';
+import { AppVM } from './app.vm';
 
 interface AppContainerProps {}
 
-interface AppContainerState {
-  icons: Icon[];
-}
-
-export class AppContainer extends Component<AppContainerProps, AppContainerState> {
+@observer
+export class AppContainer extends Component<AppContainerProps> {
 
   service: AppService = new AppService();
-  state: AppContainerState = { icons: [], };
+  vm: AppVM = new AppVM();
 
   componentWillMount() {
-    this.service.getIcons()
-      .then((icons: Icon[]) => this.setState({icons: icons}));
+    this.service.getIcons();
   }
 
   render() {
     return (
       <AppComponent
-        icons={this.state.icons}
+        icons={this.vm.appIcons}
+        searchString={this.vm.searchString}
 
+        onSetSearchString={(text: string) => this.vm.setSearchString(text)}
         onIcon={() => console.log('show icon')}
       />
     );
