@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { Images } from './core/images';
 import { Icon } from './core/models';
+import { SearchInput } from './components';
 
 interface AppComponentProps {
   icons: Icon[];
@@ -40,6 +41,10 @@ export class AppComponent extends Component<AppComponentProps> {
 
     return (
       <View style={styles.container}>
+        <SearchInput
+          placeholder={'Test'}
+          onChangeText={(text: string) => 1}
+        />
         <FlatList
           numColumns={numberOfCols}
           showsVerticalScrollIndicator={false}
@@ -56,7 +61,7 @@ export class AppComponent extends Component<AppComponentProps> {
 const styles: any = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#ffffff',
     margin: 16,
   },
   image: {
