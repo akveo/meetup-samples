@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Component } from 'react';
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
 import { Icon } from './core/models';
