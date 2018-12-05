@@ -6,6 +6,12 @@ export class AppVM {
 
   @observable searchString: string = '';
   @observable currentIcon: Icon = {};
+  @observable isOutline: boolean = true;
+
+  @action
+  setIsOutline(value: boolean) {
+    this.isOutline = value;
+  }
 
   @action
   setCurrentIcon(icon: Icon) {

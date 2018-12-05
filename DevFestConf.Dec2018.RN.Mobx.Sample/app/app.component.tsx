@@ -12,14 +12,16 @@ import {
 } from 'react-native';
 import { Images } from './core/images';
 import { Icon } from './core/models';
-import { SearchInput } from './components';
+import { SearchInput, TabChooserComponent } from './components';
 
 interface AppComponentProps {
   icons: Icon[];
   searchString: string;
   isModalVisible: boolean;
   selectedIcon: Icon;
+  isOutline: boolean;
 
+  setIsOutline: (value: boolean) => void;
   onSetSearchString: (text: string) => void;
   onIcon: (icon: Icon) => void;
   onCloseModal: () => void;
@@ -70,6 +72,10 @@ export class AppComponent extends Component<AppComponentProps> {
 
     return (
       <View style={styles.container}>
+        <TabChooserComponent
+          isOutline={this.props.isOutline}
+          onChoose={(value: boolean) => this.props.setIsOutline(value)}
+        />
         <SearchInput
           value={this.props.searchString}
           placeholder={`Search ${this.props.icons.length} icons`}

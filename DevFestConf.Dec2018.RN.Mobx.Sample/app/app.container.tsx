@@ -42,7 +42,9 @@ export class AppContainer extends Component<AppContainerProps, AppContainerState
         searchString={this.vm.searchString}
         isModalVisible={this.state.modalVisible}
         selectedIcon={this.vm.currentIcon}
+        isOutline={this.vm.isOutline}
 
+        setIsOutline={(value: boolean) => this.vm.setIsOutline(value)}
         onSetSearchString={(text: string) => this.vm.setSearchString(text)}
         onIcon={(icon: Icon) => this.onShowModal(icon)}
         onCloseModal={() => this.onCloseModal()}
