@@ -25,11 +25,12 @@ export class AppVM {
 
   @computed
   get appIcons() {
+    const icons: Icon[] = this.isOutline ? appStore.iconsOutline : appStore.iconsFill;
     if (this.searchString) {
-      return appStore.icons
+      return icons
         .filter((icon: Icon) => icon.name.toLowerCase().includes(this.searchString.toLowerCase()));
     } else {
-      return appStore.icons;
+      return icons;
     }
   }
 

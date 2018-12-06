@@ -29,7 +29,8 @@ export class TabChooserComponent extends Component<TabChooserComponentProps, Tab
   };
 
   onChoose(value: boolean) {
-    this.setState({ isOutline: value }, this.props.onChoose(this.state.isOutline));
+    this.setState({ isOutline: value });
+    this.props.onChoose && this.props.onChoose(value)
   }
 
   render() {
@@ -39,12 +40,12 @@ export class TabChooserComponent extends Component<TabChooserComponentProps, Tab
     return (
       <View style={styles.container}>
         <TouchableOpacity style={[styles.button, outlineStyle]} onPress={() => this.onChoose(true)}>
-          <Image style={styles.image} source={Images.STAR_OUTLINE}/>
+          <Image style={styles.image} source={Images.OUTLINE.STAR}/>
           <Text>OUTLINE</Text>
         </TouchableOpacity>
         <View style={styles.separator}/>
         <TouchableOpacity style={[styles.button, filledStyle]} onPress={() => this.onChoose(false)}>
-          <Image style={styles.image} source={Images.STAR_OUTLINE}/>
+          <Image style={styles.image} source={Images.FILL.STAR}/>
           <Text>FILLED</Text>
         </TouchableOpacity>
       </View>

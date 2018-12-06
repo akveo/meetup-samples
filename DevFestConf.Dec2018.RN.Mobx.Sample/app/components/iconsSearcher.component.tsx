@@ -10,7 +10,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { Images } from '../core/images';
-import { Icon } from '../core/models/icon';
+import { Icon, IconType } from '../core/models';
 import { SearchInput } from './searchInput.component';
 
 interface IconsSearcherComponentProps {
@@ -18,6 +18,7 @@ interface IconsSearcherComponentProps {
   selectedIcon: Icon;
   isModalVisible: boolean,
   searchString: string;
+  isOutline: boolean;
 
   onSetSearchString: (text: string) => void;
   onIcon: (icon: Icon) => void;
@@ -27,11 +28,12 @@ interface IconsSearcherComponentProps {
 export class IconsSearcherComponent extends Component<IconsSearcherComponentProps> {
 
   renderIcon(icon: Icon) {
+    const iconType: IconType = this.props.isOutline ? IconType.OUTLINE : IconType.FILL;
     return (
       <TouchableOpacity onPress={() => this.props.onIcon(icon)} style={styles.iconContainer}>
         <Image
           style={styles.image}
-          source={Images[icon.key]}
+          source={Images[iconType][icon.key]}
         />
       </TouchableOpacity>
     )
@@ -47,6 +49,7 @@ export class IconsSearcherComponent extends Component<IconsSearcherComponentProp
   }
 
   renderModal() {
+    const iconType: IconType = this.props.isOutline ? IconType.OUTLINE : IconType.FILL;
     return (
       <Modal
         animationType='fade'
@@ -56,7 +59,7 @@ export class IconsSearcherComponent extends Component<IconsSearcherComponentProp
         {this.renderBackground()}
         <TouchableOpacity style={styles.modalContainer} onPress={this.props.onCloseModal}>
           <View style={styles.modalContent}>
-            <Image source={Images[this.props.selectedIcon.key]}/>
+            <Image source={Images[iconType][this.props.selectedIcon.key]}/>
             <Text style={styles.iconText}>{this.props.selectedIcon.name}</Text>
           </View>
         </TouchableOpacity>

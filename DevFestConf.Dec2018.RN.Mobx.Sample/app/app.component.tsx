@@ -31,6 +31,7 @@ export class AppComponent extends Component<AppComponentProps> {
           selectedIcon={this.props.selectedIcon}
           isModalVisible={this.props.isModalVisible}
           searchString={this.props.searchString}
+          isOutline={this.props.isOutline}
 
           onSetSearchString={(text: string) => this.props.onSetSearchString(text)}
           onIcon={(icon: Icon) => this.props.onIcon(icon)}

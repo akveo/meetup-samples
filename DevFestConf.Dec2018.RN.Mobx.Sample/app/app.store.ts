@@ -3,11 +3,17 @@ import { Icon } from './core/models';
 
 class AppStore {
 
-  @observable icons: Icon[] = [];
+  @observable iconsFill: Icon[] = [];
+  @observable iconsOutline: Icon[] = [];
 
   @action
-  setIcons(iconsForSet: Icon[]) {
-    this.icons = iconsForSet;
+  setIconsFill(iconsForSet: Icon[]) {
+    this.iconsFill = iconsForSet;
+  }
+
+  @action
+  setIconsOutline(iconsForSet: Icon[]) {
+    this.iconsOutline = iconsForSet;
   }
 
 }
