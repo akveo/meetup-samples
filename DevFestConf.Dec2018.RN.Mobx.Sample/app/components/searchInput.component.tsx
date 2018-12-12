@@ -3,9 +3,9 @@ import {
   StyleSheet,
   View,
   TextInput,
-  Image,
 } from 'react-native'
 import { Images } from '../core/images';
+import SvgUri from 'react-native-svg-uri';
 
 interface SearchInputProps {
   value: string;
@@ -42,7 +42,12 @@ export class SearchInput extends Component<SearchInputProps, SearchInputState> {
 
     return (
       <View style={[styles.container, focusStyle, style]}>
-        <Image style={styles.icon} source={Images.SEARCH_OUTLINE}/>
+        <SvgUri
+          width='20'
+          height='20'
+          source={Images.SVG.SEARCH}
+          style={styles.icon}
+        />
         <TextInput
           {...this.props}
           style={styles.input}
@@ -75,8 +80,6 @@ const styles: any = StyleSheet.create({
     color: '#5c5d60',
   },
   icon: {
-    width: 20,
-    height: 20,
     marginHorizontal: 16,
   },
   inputFocus: {

@@ -38,7 +38,7 @@ export class AppContainer extends Component<AppContainerProps, AppContainerState
   render() {
     return (
       <AppComponent
-        icons={this.vm.appIcons}
+        icons={this.vm.appIcons.slice()}
         searchString={this.vm.searchString}
         isModalVisible={this.state.modalVisible}
         selectedIcon={this.vm.currentIcon}

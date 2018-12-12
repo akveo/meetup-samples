@@ -481,4 +481,10 @@ export const Images = Object.freeze({
     WIFI_OFF: require('../../assets/icons/wifi-off.png'),
     WIFI: require('../../assets/icons/wifi.png'),
   },
+  SVG: {
+    STAR_FILL: require('../../assets/icons/star.svg'),
+    STAR_FILL_DISABLED: require('../../assets/icons/star-fill-disabled.svg'),
+    STAR_OUTLINE: require('../../assets/icons/star-outline.svg'),
+    SEARCH: require('../../assets/icons/search.svg'),
+  }
 });
