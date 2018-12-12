@@ -37,6 +37,8 @@ export class TabChooserComponent extends Component<TabChooserComponentProps, Tab
     const outlineStyle = this.state.isOutline ? styles.chosenStyle : styles.notChosenStyle;
     const filledStyle = this.state.isOutline ? styles.notChosenStyle : styles.chosenStyle;
     const filledImage = this.state.isOutline ? Images.SVG.STAR_FILL_DISABLED : Images.SVG.STAR_FILL;
+    const outlineButtonStyle = this.state.isOutline ? styles.textChosenStyle : styles.textNotChosenStyle;
+    const filledButtonStyle = this.state.isOutline ? styles.textNotChosenStyle : styles.textChosenStyle;
 
     return (
       <View style={styles.container}>
@@ -47,7 +49,7 @@ export class TabChooserComponent extends Component<TabChooserComponentProps, Tab
             source={Images.SVG.STAR_OUTLINE}
             style={styles.image}
           />
-          <Text>OUTLINE</Text>
+          <Text style={[styles.text, outlineButtonStyle]}>OUTLINE</Text>
         </TouchableOpacity>
         <View style={styles.separator}/>
         <TouchableOpacity style={[styles.button, filledStyle]} onPress={() => this.onChoose(false)}>
@@ -57,7 +59,7 @@ export class TabChooserComponent extends Component<TabChooserComponentProps, Tab
             source={filledImage}
             style={styles.image}
           />
-          <Text>FILLED</Text>
+          <Text style={[styles.text, filledButtonStyle]}>FILLED</Text>
         </TouchableOpacity>
       </View>
     )
@@ -72,7 +74,7 @@ const styles: any = StyleSheet.create({
     marginVertical: 12,
     height: 56,
     borderRadius: 5,
-    borderColor: '#000',
+    borderColor: '#EDF0F5',
     borderWidth: 1,
   },
   button: {
@@ -84,15 +86,25 @@ const styles: any = StyleSheet.create({
   separator: {
     height: 56,
     width: 2,
-    backgroundColor: '#000',
+    backgroundColor: '#EDF0F5',
   },
   image: {
     marginRight: 8,
   },
   notChosenStyle: {
-    backgroundColor: '#b0b4ba'
+    backgroundColor: '#EDF0F5'
   },
   chosenStyle: {
     backgroundColor: 'transparent'
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: '400',
+  },
+  textChosenStyle: {
+    color: '#3366FF',
+  },
+  textNotChosenStyle: {
+    color: '#A7B4CC',
   },
 });
