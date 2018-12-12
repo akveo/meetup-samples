@@ -98,9 +98,9 @@ const styles: any = StyleSheet.create({
     height: 83,
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 0.4,
+    borderWidth: 0.8,
     borderRadius: 5,
-    borderColor: '#000',
+    borderColor: '#EDF0F5',
     margin: 6,
   },
   image: {
@@ -132,6 +132,8 @@ const styles: any = StyleSheet.create({
   iconText: {
     fontSize: 16,
     marginTop: 16,
+    color: '#5670A1',
+    fontWeight: '600',
   },
   iconList: {
     marginBottom: 150,

@@ -95,7 +95,7 @@ const styles: any = StyleSheet.create({
     backgroundColor: '#EDF0F5'
   },
   chosenStyle: {
-    backgroundColor: 'transparent'
+    backgroundColor: '#ffffff'
   },
   text: {
     fontSize: 18,
