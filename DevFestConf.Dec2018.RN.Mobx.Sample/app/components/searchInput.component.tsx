@@ -38,19 +38,21 @@ export class SearchInput extends Component<SearchInputProps, SearchInputState> {
 
   render() {
     const { placeholder, style } = this.props;
-    const focusStyle = this.state.toggle ? styles.inputFocus : '';
+    const focusStyle = this.state.toggle ? styles.inputFocusContainer : {};
+    const inputFocusStyle = this.state.toggle ? styles.inputFocus : styles.input;
+    const icon = this.state.toggle ? Images.SVG.SEARCH_BlUE : Images.SVG.SEARCH;
 
     return (
       <View style={[styles.container, focusStyle, style]}>
         <SvgUri
           width='20'
           height='20'
-          source={Images.SVG.SEARCH}
+          source={icon}
           style={styles.icon}
         />
         <TextInput
           {...this.props}
-          style={styles.input}
+          style={inputFocusStyle}
           placeholder={placeholder}
           underlineColorAndroid='transparent'
           placeholderTextColor={'#abb3c1'}
@@ -64,9 +66,14 @@ export class SearchInput extends Component<SearchInputProps, SearchInputState> {
   }
 }
 
+const COMMON_FOCUS_STYLE = {
+  flex: 1,
+  fontSize: 16,
+};
+
 const styles: any = StyleSheet.create({
   container: {
-    backgroundColor: '#edf0f5',
+    backgroundColor: '#EDF0F5',
     marginVertical: 12,
     height: 56,
     borderRadius: 5,
@@ -75,14 +82,17 @@ const styles: any = StyleSheet.create({
     alignItems: 'center',
   },
   input: {
-    flex: 1,
-    fontSize: 16,
-    color: '#5c5d60',
+    ...COMMON_FOCUS_STYLE,
+    color: '#A7B4CC',
+  },
+  inputFocus: {
+    ...COMMON_FOCUS_STYLE,
+    color: '#3366FF',
   },
   icon: {
     marginHorizontal: 16,
   },
-  inputFocus: {
+  inputFocusContainer: {
     borderColor: '#e6e6e6',
     borderWidth: 0.8,
   },
