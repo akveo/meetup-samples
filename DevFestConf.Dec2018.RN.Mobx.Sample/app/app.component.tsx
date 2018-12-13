@@ -1,8 +1,9 @@
 import React from 'react';
 import { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Image, } from 'react-native';
 import { Icon } from './core/models';
 import { TabChooserComponent, IconsSearcherComponent } from './components';
+import { Images } from './core/images';
 
 interface AppComponentProps {
   icons: Icon[];
@@ -22,6 +23,7 @@ export class AppComponent extends Component<AppComponentProps> {
   render() {
     return (
       <View style={styles.container}>
+        <Image source={Images.LOGO} style={styles.image}/>
         <TabChooserComponent
           isOutline={this.props.isOutline}
           onChoose={(value: boolean) => this.props.setIsOutline(value)}
@@ -49,4 +51,10 @@ const styles: any = StyleSheet.create({
     backgroundColor: '#ffffff',
     margin: 16,
   },
+  image: {
+    width: 250,
+    height: 58,
+    alignSelf: 'center',
+    marginVertical: 50,
+  }
 });

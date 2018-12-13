@@ -71,7 +71,7 @@ const styles: any = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginVertical: 12,
+    marginBottom: 40,
     height: 56,
     borderRadius: 5,
     borderColor: '#EDF0F5',

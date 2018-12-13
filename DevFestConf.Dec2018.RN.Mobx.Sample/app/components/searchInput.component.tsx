@@ -74,7 +74,7 @@ const COMMON_FOCUS_STYLE = {
 const styles: any = StyleSheet.create({
   container: {
     backgroundColor: '#EDF0F5',
-    marginVertical: 12,
+    marginBottom: 24,
     height: 56,
     borderRadius: 5,
     flexDirection: 'row',
