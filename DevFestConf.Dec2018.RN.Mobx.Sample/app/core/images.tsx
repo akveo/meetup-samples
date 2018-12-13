@@ -487,5 +487,6 @@ export const Images = Object.freeze({
     STAR_OUTLINE: require('../../assets/icons/star-outline.svg'),
     SEARCH: require('../../assets/icons/search.svg'),
     SEARCH_BlUE: require('../../assets/icons/search-blue.svg'),
-  }
+  },
+  LOGO: require('../../assets/icons/logo.png'),
 });

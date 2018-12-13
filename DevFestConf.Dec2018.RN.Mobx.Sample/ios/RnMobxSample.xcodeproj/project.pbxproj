@@ -532,6 +532,7 @@
 		B5CE3B9729FD41DAB395D933 /* search.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1D7CB883BF3F4EE1BF8DB365 /* search.svg */; };
 		94EAACE0FD0F4DEC898A457A /* star-fill-disabled.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7E5C78468F5742D181DA3417 /* star-fill-disabled.svg */; };
 		F74D599D910740C08C5554CB /* search-blue.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0C14FA605FC04CFD9B18DB65 /* search-blue.svg */; };
+		A35152B31DD84266AF906E7A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 054E1E7F54D64718B0424D5A /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1333,6 +1334,7 @@
 		1D7CB883BF3F4EE1BF8DB365 /* search.svg */ = {isa = PBXFileReference; name = "search.svg"; path = "../assets/icons/search.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		7E5C78468F5742D181DA3417 /* star-fill-disabled.svg */ = {isa = PBXFileReference; name = "star-fill-disabled.svg"; path = "../assets/icons/star-fill-disabled.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		0C14FA605FC04CFD9B18DB65 /* search-blue.svg */ = {isa = PBXFileReference; name = "search-blue.svg"; path = "../assets/icons/search-blue.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		054E1E7F54D64718B0424D5A /* logo.png */ = {isa = PBXFileReference; name = "logo.png"; path = "../assets/icons/logo.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2093,6 +2095,7 @@
 				1D7CB883BF3F4EE1BF8DB365 /* search.svg */,
 				7E5C78468F5742D181DA3417 /* star-fill-disabled.svg */,
 				0C14FA605FC04CFD9B18DB65 /* search-blue.svg */,
+				054E1E7F54D64718B0424D5A /* logo.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -3037,6 +3040,7 @@
 				B5CE3B9729FD41DAB395D933 /* search.svg in Resources */,
 				94EAACE0FD0F4DEC898A457A /* star-fill-disabled.svg in Resources */,
 				F74D599D910740C08C5554CB /* search-blue.svg in Resources */,
+				A35152B31DD84266AF906E7A /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
