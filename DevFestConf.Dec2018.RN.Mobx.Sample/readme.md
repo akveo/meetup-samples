@@ -3,7 +3,7 @@
 This sample is implemented to demonstrate how to use State Management with MobX in React Native mobile application.
 It's based on store architecture approach, which is presented here in picture:
 
-![Store Architecture](/assets/Service Store Architecture.png)
+![Store Architecture](./assets/Service Store Architecture.png)
 
 Key points from it:
 
